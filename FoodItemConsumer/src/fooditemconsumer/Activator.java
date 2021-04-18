@@ -34,10 +34,12 @@ public class Activator implements BundleActivator {
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\n\n");
-		System.out.println("----------Imeero Family Restaurant----------");
+		System.out.println("----------Imeero Family Restaurant - Admin Menu Section ----------");
 		System.out.println("1  - Add Food Item into the Menu");
 		System.out.println("2  - Get all food Items in the Menu");
-		System.out.println("3  - Search food Item in the Menu");
+		System.out.println("3  - Search food Item by Id in the Menu");
+		System.out.println("4  - Search food Item by name in the Menu");
+		System.out.println("5  - Delete food Item in the Menu");
 		System.out.print("Choose an option : ");
 		
 		option = Integer.parseInt(sc.nextLine().trim());
@@ -64,8 +66,18 @@ public class Activator implements BundleActivator {
 				foodItemInterface.getFoodDetailById();
 				displayMainMenu(foodItemInterface);
 				break;
+			case 4:
+				foodItemInterface.getFoodDetailByName();
+				displayMainMenu(foodItemInterface);
+				break;
+			case 5:
+				foodItemInterface.getAllFoodItems();
+				foodItemInterface.deleteFoodItem();
+				foodItemInterface.getAllFoodItems();
+				displayMainMenu(foodItemInterface);
+				break;
 			default:
-				System.out.println("Incorrect Input... Try Again");
+				System.out.println("Incorrect Input. Try Again...");
 				displayMainMenu(foodItemInterface);
 		}
 		
