@@ -1,6 +1,7 @@
 package fooditempublisher;
 
 import java.sql.Statement;
+import java.util.Scanner;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,7 +16,7 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 	private Database database;
 	private ResultSet resultSet;
 	
-	
+	Scanner sc = new Scanner(System.in);
 
 	public FoodItemServiceImpl() {
 		super();
@@ -24,7 +25,19 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 	}
 
 	@Override
-	public void insertFoodItem(FoodItem foodItem) {
+	public void insertFoodItem() {
+		
+		FoodItem foodItem = new FoodItem();
+		
+		System.out.println("Enter Food Name : ");
+		foodItem.setFoodName(sc.nextLine().trim());
+		
+		System.out.println("Enter Food Type : ");
+		foodItem.setFoodType(sc.nextLine().trim());
+		
+		System.out.println("Enter Food Price : ");
+		foodItem.setFoodPrice(Double.parseDouble(sc.nextLine().trim()));
+		
 		
 		String sqlQueryFoodItem = "INSERT INTO fooditems(foodname, foodtype, foodprice) "
 				+ "VALUES('"+ foodItem.getFoodName() +"', '"+ foodItem.getFoodType() +"', '"+ foodItem.getFoodPrice() + "')";
@@ -59,7 +72,12 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 
 	@SuppressWarnings("finally")
 	@Override
-	public ResultSet getFoodDetailById(Integer foodId) {
+	public ResultSet getFoodDetailById() {
+		
+		int foodId;
+		
+		System.out.println("Enter Food Name : ");
+		foodId = Integer.parseInt(sc.nextLine().trim());
 		
 		String sqlQueryFoodItem = "SELECT * FROM fooditems WHERE id = '"+ foodId +"'";
 		
@@ -73,7 +91,6 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 			return resultSet;
 		}
 	}
-
 
 
 }
