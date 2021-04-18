@@ -8,5 +8,6 @@ public interface FoodItemInterface {
 	public void getAllFoodItems();
 	public void getFoodDetailById();
 	public void getFoodDetailByName();
+	public void deleteFoodItem();
 
 }
