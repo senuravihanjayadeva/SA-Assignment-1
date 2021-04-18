@@ -100,4 +100,26 @@ public class EmployeeService implements EmployeeInterface{
 		}
 	}
 
+	@Override
+	public void deleteemployee() {
+		// TODO Auto-generated method stub
+String nic;
+		
+		System.out.println("Enter NIC : ");
+		nic = (sc.nextLine().trim());
+		
+		
+		try {
+			statement = connection.createStatement();
+			statement.executeUpdate("DELETE FROM employee WHERE employeenic = '"+ nic +"'"); 
+		    	  System.out.printf("Successfully Deleted!");
+
+		} catch (SQLException exc) {
+			System.out.println("Error with get Employee by NIC");
+			System.out.println(exc.getMessage());
+		}
+	}
+
+		
 }
+

@@ -9,5 +9,6 @@ public interface FoodItemInterface {
 	public void getFoodDetailById();
 	public void getFoodDetailByName();
 	public void deleteFoodItem();
+	public double getFoodPriceById(int foodId);
 
 }

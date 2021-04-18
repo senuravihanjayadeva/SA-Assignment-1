@@ -1,16 +1,69 @@
 package resturantservicepublisher;
 
+
 public class Reservation {
-	 private String customerName;
-	    private int noOfGuests;
+	private int ReservationID;
+	private String customerName;
+	private int noOfguests;
+	private String phoneNumber;
+	private String reservationDate;
+	private int priority;
+	
+	public Reservation() {
+		super();
+	}
+	
+	public Reservation(int reservationID, String customerName, int noOfguests, String phoneNumber,int priority) {
+		super();
+		ReservationID = reservationID;
+		this.customerName = customerName;
+		this.noOfguests = noOfguests;
+		this.phoneNumber = phoneNumber;
+		this.priority = priority;
+	}
+	
+	public int getPriority() {
+		return priority;
+	}
 
-		Reservation(int noOfGuests, String customerName) {
-	        this.customerName = customerName;
-	        this.noOfGuests = noOfGuests;
-	    }
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
 
-	    public String getReservationDetails() {
-	    	String st = "Reserved for "+noOfGuests+"(Reserved by : "+customerName+")";
-	        return st;
-	   }
+	public int getReservationID() {
+		return ReservationID;
+	}
+	public void setReservationID(int reservationID) {
+		ReservationID = reservationID;
+	}
+	public String getCustomerName() {
+		return customerName;
+	}
+	public void setCustomerName(String customerName) {
+		this.customerName = customerName;
+	}
+	public int getNoOfguests() {
+		return noOfguests;
+	}
+	public void setNoOfguests(int noOfguests) {
+		this.noOfguests = noOfguests;
+	}
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getReservationDate() {
+		return reservationDate;
+	}
+
+	public void setReservationDate(String reservationDate) {
+		this.reservationDate = reservationDate;
+	}
+
+	
+	
+	
 }

@@ -192,6 +192,29 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 	
 	
 	@Override
+	public double getFoodPriceById(int foodId) {
+		double price = 0;
+		String sqlQueryFoodItem = "SELECT * FROM fooditems WHERE id = '"+ foodId +"'";
+		
+		try {
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(sqlQueryFoodItem);
+	
+			while(resultSet.next()) {		
+				price = resultSet.getDouble("foodprice");
+			}		
+				
+		} catch (SQLException exc) {
+			System.out.println("Error with get Food Item by Id");
+			System.out.println(exc.getMessage());
+			price = 0.0;
+		}
+		
+		return price;
+	}
+	
+	
+	@Override
 	public void deleteFoodItem() {
 		
 		int foodId;
