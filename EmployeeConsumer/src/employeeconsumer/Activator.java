@@ -37,10 +37,10 @@ public class Activator implements BundleActivator {
 		System.out.println("1  - Add Employee");
 		System.out.println("2  - Get all Employees");
 		System.out.println("3  - Search Employee from NIC");
+		System.out.println("4  - Delete Employee from NIC");
 		System.out.print("Choose an option : ");
 		
 		option = Integer.parseInt(sc.nextLine().trim());
-		
 		switch(option) {
 			case 1:
 				employeeInterface.insertEmployee();
@@ -61,6 +61,10 @@ public class Activator implements BundleActivator {
 				break;
 			case 3:
 				employeeInterface.searchEmployee();
+				displayMainMenu(employeeInterface);
+				break;
+			case 4:
+				employeeInterface.deleteemployee();
 				displayMainMenu(employeeInterface);
 				break;
 			default:
