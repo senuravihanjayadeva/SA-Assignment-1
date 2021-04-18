@@ -7,19 +7,29 @@ public class Reservation {
 	private int noOfguests;
 	private String phoneNumber;
 	private String reservationDate;
+	private int priority;
 	
 	public Reservation() {
 		super();
 	}
 	
-	public Reservation(int reservationID, String customerName, int noOfguests, String phoneNumber) {
+	public Reservation(int reservationID, String customerName, int noOfguests, String phoneNumber,int priority) {
 		super();
 		ReservationID = reservationID;
 		this.customerName = customerName;
 		this.noOfguests = noOfguests;
 		this.phoneNumber = phoneNumber;
+		this.priority = priority;
 	}
 	
+	public int getPriority() {
+		return priority;
+	}
+
+	public void setPriority(int priority) {
+		this.priority = priority;
+	}
+
 	public int getReservationID() {
 		return ReservationID;
 	}
@@ -52,6 +62,8 @@ public class Reservation {
 	public void setReservationDate(String reservationDate) {
 		this.reservationDate = reservationDate;
 	}
+
+	
 	
 	
 }

@@ -34,6 +34,11 @@ public class Activator implements BundleActivator {
 		System.out.println("----------Imeero Family Restaurant - Reservation ----------");
 		System.out.println("1  - Add Reservation");
 		System.out.println("2  - Get all Reservations");
+		System.out.println("3  - Get reservation by name");
+		System.out.println("4  - Delete reservation");
+		System.out.println("5  - Get priority/normal reservations");
+
+		
 		System.out.print("Choose an option : ");
 		
 		option = Integer.parseInt(sc.nextLine().trim());
@@ -54,6 +59,18 @@ public class Activator implements BundleActivator {
 				break;
 			case 2:
 				resturantServicePublish.getallReservations();
+				displayMainMenu(resturantServicePublish);
+				break;
+			case 3:
+				resturantServicePublish.getReservationsByCustName();
+				displayMainMenu(resturantServicePublish);
+				break;
+			case 4:
+				resturantServicePublish.deleteReservation();
+				displayMainMenu(resturantServicePublish);
+				break;
+			case 5:
+				resturantServicePublish.getPriorityNormal();
 				displayMainMenu(resturantServicePublish);
 				break;
 			default:
