@@ -7,5 +7,6 @@ public interface FoodItemInterface {
 	public void insertFoodItem();
 	public void getAllFoodItems();
 	public void getFoodDetailById();
+	public void getFoodDetailByName();
 
 }

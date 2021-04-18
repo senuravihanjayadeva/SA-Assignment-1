@@ -31,6 +31,8 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 		
 		FoodItem foodItem = new FoodItem();
 		
+		System.out.println("----------	Imeero Family Restaurant :  Add Food Item into the Menu	----------");
+		
 		System.out.println("Enter Food Name : ");
 		foodItem.setFoodName(sc.nextLine().trim());
 		
@@ -81,7 +83,7 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 		
 		int foodId;
 		
-		System.out.println("Enter Food Name : ");
+		System.out.println("Enter Food ID : ");
 		foodId = Integer.parseInt(sc.nextLine().trim());
 		
 		String sqlQueryFoodItem = "SELECT * FROM fooditems WHERE id = '"+ foodId +"'";
@@ -89,12 +91,36 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 		try {
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(sqlQueryFoodItem);
-	    	System.out.printf("%20d %20s %20s %20.2f\n",resultSet.getInt("id"),resultSet.getString("foodname"),resultSet.getString("foodtype"),resultSet.getDouble("foodprice"));		    	
-
+		      while (resultSet.next()) {  
+		    	  System.out.printf("%20d %20s %20s %20.2f\n",resultSet.getInt("id"),resultSet.getString("foodname"),resultSet.getString("foodtype"),resultSet.getDouble("foodprice"));		    	
+		      }
 		} catch (SQLException exc) {
 			System.out.println("Error with get Food Item by Id");
 			System.out.println(exc.getMessage());
 		}
+	}
+
+	@Override
+	public void getFoodDetailByName() {
+		
+		String foodName;
+		
+		System.out.println("Enter Food Name : ");
+		foodName = sc.nextLine().trim();
+		
+		String sqlQueryFoodItem = "SELECT * FROM fooditems WHERE foodname = '"+ foodName +"'";
+		
+		try {
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(sqlQueryFoodItem);
+		      while (resultSet.next()) {  
+		    	  System.out.printf("%20d %20s %20s %20.2f\n",resultSet.getInt("id"),resultSet.getString("foodname"),resultSet.getString("foodtype"),resultSet.getDouble("foodprice"));		    	
+		      }
+		} catch (SQLException exc) {
+			System.out.println("Error with get Food Item by Name");
+			System.out.println(exc.getMessage());
+		}
+		
 	}
 
 
