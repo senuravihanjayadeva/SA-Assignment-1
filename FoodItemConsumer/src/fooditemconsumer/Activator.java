@@ -34,7 +34,7 @@ public class Activator implements BundleActivator {
 		
 		Scanner sc = new Scanner(System.in);
 		System.out.println("\n\n");
-		System.out.println("----------Imeero Family Restaurant----------");
+		System.out.println("----------Imeero Family Restaurant - Admin Menu Section ----------");
 		System.out.println("1  - Add Food Item into the Menu");
 		System.out.println("2  - Get all food Items in the Menu");
 		System.out.println("3  - Search food Item in the Menu");
@@ -64,8 +64,12 @@ public class Activator implements BundleActivator {
 				foodItemInterface.getFoodDetailById();
 				displayMainMenu(foodItemInterface);
 				break;
+			case 4:
+				foodItemInterface.getFoodDetailByName();
+				displayMainMenu(foodItemInterface);
+				break;
 			default:
-				System.out.println("Incorrect Input... Try Again");
+				System.out.println("Incorrect Input. Try Again...");
 				displayMainMenu(foodItemInterface);
 		}
 		
