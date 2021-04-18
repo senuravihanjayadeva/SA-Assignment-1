@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 public interface FoodItemInterface {
 	
 	public void insertFoodItem();
-	public ResultSet getAllFoodItems();
-	public ResultSet getFoodDetailById();
+	public void getAllFoodItems();
+	public void getFoodDetailById();
 
 }

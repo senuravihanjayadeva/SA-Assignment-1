@@ -1,6 +1,8 @@
 package fooditempublisher;
 
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -55,24 +57,27 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 
 	@SuppressWarnings("finally")
 	@Override
-	public ResultSet getAllFoodItems() {
+	public void getAllFoodItems() {
+		FoodItem foodItem = new FoodItem();
+		List<FoodItem> foodList = new ArrayList<>();
 		String sqlQueryFoodItem = "SELECT * FROM fooditems";
-		
+
 		try {
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(sqlQueryFoodItem);
+		      while (resultSet.next()) {  
+		    	  System.out.printf("%20d %20s %20s %20.2f\n",resultSet.getInt("id"),resultSet.getString("foodname"),resultSet.getString("foodtype"),resultSet.getDouble("foodprice"));		    	
+		      }
 		} catch (SQLException exc) {
 			System.out.println("Error with get all Food Item");
 			System.out.println(exc.getMessage());
-		} finally {
-			return resultSet;
 		}
 		
 	}
 
 	@SuppressWarnings("finally")
 	@Override
-	public ResultSet getFoodDetailById() {
+	public void getFoodDetailById() {
 		
 		int foodId;
 		
@@ -84,11 +89,11 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 		try {
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(sqlQueryFoodItem);
+	    	System.out.printf("%20d %20s %20s %20.2f\n",resultSet.getInt("id"),resultSet.getString("foodname"),resultSet.getString("foodtype"),resultSet.getDouble("foodprice"));		    	
+
 		} catch (SQLException exc) {
 			System.out.println("Error with get Food Item by Id");
 			System.out.println(exc.getMessage());
-		} finally {
-			return resultSet;
 		}
 	}
 
