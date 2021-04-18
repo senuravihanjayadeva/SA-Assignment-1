@@ -6,15 +6,38 @@ public class Food {
 	private String foodName;
 	private String code;
 	private double price;
+	private int amount;
+	
+	public Food(String code, int amount) {
+		super();
+		this.code = code;
+		this.amount = amount;
+	}
+	public Food(String foodName, String code, double price, int amount) {
+		super();
+		this.foodName = foodName;
+		this.code = code;
+		this.price = price;
+		this.amount = amount;
+	}
 
-	public Food(int id, String foodName, String code, double price) {
+	public Food(int id, String foodName, String code, double price, int amount) {
 		super();
 		this.id = id;
 		this.foodName = foodName;
 		this.code = code;
 		this.price = price;
+		this.amount = amount;
 	}
-	
+
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
 	public int getId() {
 		return id;
 	}

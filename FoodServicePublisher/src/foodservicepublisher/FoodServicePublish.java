@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface FoodServicePublish {
 
-	public List<Food> orderFood(int amount, String code, String customerName, String address);
+	public List<Food> orderFood(int amount, String code);
 }
