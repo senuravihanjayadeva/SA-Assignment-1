@@ -15,8 +15,8 @@ public class DatabaseImpl implements Database {
 	public DatabaseImpl() {
 		this.diverName = "com.mysql.jdbc.Driver";
 		this.databaseConnectionLink = "jdbc:mysql://localhost:3306/resturant_db?characterEncoding=latin1&useConfigs=maxPerformance";
-		this.databaseUser = "vihan";
-		this.databasePassword = "vihan123";
+		this.databaseUser = "saassignment01";
+		this.databasePassword = "sa1998";
 	}
 
 	@SuppressWarnings("finally")
