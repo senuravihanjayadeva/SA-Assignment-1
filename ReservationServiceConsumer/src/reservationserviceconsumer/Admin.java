@@ -1,10 +1,11 @@
 package reservationserviceconsumer;
 
 import resturantservicepublisher.ResturantServicePublish;
-
+//this is the admin class model
 public class Admin {
 	ResturantServicePublish resturantServicePublish;
 
+	//constructor taking the ResturantServicePublish reference
 	public Admin(ResturantServicePublish resturantServicePublish) {
 		super();
 		this.resturantServicePublish = resturantServicePublish;

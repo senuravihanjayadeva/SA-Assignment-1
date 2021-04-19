@@ -13,9 +13,9 @@ import java.util.Scanner;
 import resturantdb.Database;
 import resturantdb.DatabaseImpl;
 
-
+//Service publisher class
 public class ResturantServicePublishImpl implements ResturantServicePublish {
-	
+	// database connection
 	private Connection connection = null;
 	private Statement statement = null;
 	private Database database;
@@ -29,11 +29,12 @@ public class ResturantServicePublishImpl implements ResturantServicePublish {
 		connection = database.getDatabaseConnection();
 	}
 
+	//method to insert a new reservation
 	@Override
 	public void insertReservation() {
 		
 		Reservation reservation = new Reservation();
-		
+	
 		System.out.println("----------	Imeero Family Restaurant : Reservation	----------");
 		
 		System.out.println("Enter Customer Name : ");
@@ -70,6 +71,7 @@ public class ResturantServicePublishImpl implements ResturantServicePublish {
 		
 	}
 
+	//methods to get all the reservations in the system
 	@Override
 	public void getallReservations() {
 		
@@ -92,6 +94,7 @@ public class ResturantServicePublishImpl implements ResturantServicePublish {
 		}
 	}
 
+	//method to get all the reservations to a specific users
 	@Override
 	public void getReservationsByCustName() {
 		// TODO Auto-generated method stub
@@ -119,6 +122,7 @@ public class ResturantServicePublishImpl implements ResturantServicePublish {
 		
 	}
 
+	// method to delete the user
 	@Override
 	public void deleteReservation() {
 		// TODO Auto-generated method stub
@@ -144,6 +148,7 @@ public class ResturantServicePublishImpl implements ResturantServicePublish {
 		
 	}
 
+	// method to get all the priority reservations or all the normal reservation
 	@Override
 	public void getPriorityNormal() {
 		// TODO Auto-generated method stub
