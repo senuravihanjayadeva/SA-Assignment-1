@@ -80,7 +80,7 @@ public class ResturantServicePublishImpl implements ResturantServicePublish {
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(sqlQueryReservation);
 	    	  System.out.printf("---------------------------------------------------------------------------------------------------------------------------------\n");	
-	    	  System.out.printf("%20s %20s %20s %20s %20s %20s\n","Reservation ID","Customer Name","Number of guests","Phone number","Rservation date","Priority");
+	    	  System.out.printf("\n%20s %20s %20s %20s %20s %20s\n","Reservation ID","Customer Name","Number of guests","Phone number","Rservation date","Priority");
 	    	  System.out.printf("---------------------------------------------------------------------------------------------------------------------------------\n");	
 		      while (resultSet.next()) {  
 		    	  System.out.printf("%20d %20s %20d %20s %20s %20d\n",resultSet.getInt("id"),resultSet.getString("customername"),resultSet.getInt("noofguest"),resultSet.getString("customerphone"),resultSet.getString("reservationdate"),resultSet.getInt("priority"));		    
@@ -106,7 +106,7 @@ public class ResturantServicePublishImpl implements ResturantServicePublish {
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(sqlQueryFoodItem);
 			System.out.printf("---------------------------------------------------------------------------------------------------------------------------------\n");	
-	    	  System.out.printf("%20s %20s %20s %20s %20s %20s\n","Reservation ID","Customer Name","Number of guests","Phone number","Rservation date","Priority");
+	    	  System.out.printf("\n%20s %20s %20s %20s %20s %20s\n","Reservation ID","Customer Name","Number of guests","Phone number","Rservation date","Priority");
 	    	  System.out.printf("---------------------------------------------------------------------------------------------------------------------------------\n");	
 		    while (resultSet.next()) {    	  
 		    	  System.out.printf("%20d %20s %20d %20s %20s %20d\n",resultSet.getInt("id"),resultSet.getString("customername"),resultSet.getInt("noofguest"),resultSet.getString("customerphone"),resultSet.getString("reservationdate"),resultSet.getInt("priority"));		    	
