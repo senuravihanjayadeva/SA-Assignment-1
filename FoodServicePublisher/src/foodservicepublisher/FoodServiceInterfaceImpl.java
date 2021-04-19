@@ -25,6 +25,7 @@ public class FoodServiceInterfaceImpl implements FoodServiceInterface {
 		connection = database.getDatabaseConnection();
 	}
 
+	//order food for a particular table
 	@Override
 	public void insertFood() {
 		Orderfood food = new Orderfood();
@@ -59,6 +60,7 @@ public class FoodServiceInterfaceImpl implements FoodServiceInterface {
 		
 	}
 	
+	//from this method user can get food price by entering the food id
 	@Override
 	public double getFoodPriceById(int foodId) {
 		double price = 0;
@@ -84,6 +86,7 @@ public class FoodServiceInterfaceImpl implements FoodServiceInterface {
 	@Override
 	public String getFoodNameById(int foodId) {
 		
+		//sql query to get food items by id
 		String foodName = "";
 		String sqlQueryFoodItem = "SELECT * FROM fooditems WHERE id = '"+ foodId +"'";
 		
@@ -104,9 +107,10 @@ public class FoodServiceInterfaceImpl implements FoodServiceInterface {
 		return foodName;
 	}
 
+	//get all the food that has been ordered
 	@Override
 	public void getallfoodorder() {
-		// TODO Auto-generated method stub
+		
 		Orderfood orderfood = new Orderfood();
 		String sqlQueryFoodOrder = "SELECT * FROM orderfood";
 
