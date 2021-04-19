@@ -22,10 +22,12 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 
 	public FoodItemServiceImpl() {
 		super();
+		//Establish Database Connection
 		database = new DatabaseImpl();
 		connection = database.getDatabaseConnection();
 	}
 
+	//Method for add food items into Menu
 	@Override
 	public void insertFoodItem() {
 		
@@ -57,6 +59,7 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 		
 	}
 
+	//Method for get all food items from Menu
 	@SuppressWarnings("finally")
 	@Override
 	public void getAllFoodItems() {
@@ -142,6 +145,7 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 		
 	}
 
+	//Method for get food item from Menu by Id
 	@SuppressWarnings("finally")
 	@Override
 	public void getFoodDetailById() {
@@ -165,6 +169,7 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 		}
 	}
 
+	//Method for get food item from Menu by name
 	@Override
 	public void getFoodDetailByName() {
 		
@@ -190,7 +195,7 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 		
 	}
 	
-	
+	//Method for get price for food item from Menu by Id
 	@Override
 	public double getFoodPriceById(int foodId) {
 		double price = 0;
@@ -213,7 +218,7 @@ public class FoodItemServiceImpl implements FoodItemInterface {
 		return price;
 	}
 	
-	
+	//Method for delete food item from Menu by Id
 	@Override
 	public void deleteFoodItem() {
 		
