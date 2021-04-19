@@ -8,11 +8,13 @@ import resturantdb.Database;
 import resturantdb.DatabaseImpl;
 
 public class Activator implements BundleActivator {
-
+	
 	private ServiceRegistration serviceRegistration;
 
 	public void start(BundleContext context) throws Exception {
 		System.out.println("FoodItem Publisher service started");
+		
+		//Register Publisher Service
 		FoodItemInterface foodItemInterface = new FoodItemServiceImpl();
 		serviceRegistration = context.registerService(FoodItemInterface.class.getName(), foodItemInterface, null);
 	}
