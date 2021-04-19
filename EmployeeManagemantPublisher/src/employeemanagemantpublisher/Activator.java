@@ -9,6 +9,7 @@ public class Activator implements BundleActivator {
 
 	public void start(BundleContext context) throws Exception {
 		System.out.println("Employee Publisher service started");
+		//Register Service
 		EmployeeInterface employeeInterface = new EmployeeService();
 		serviceRegistration = context.registerService(EmployeeInterface.class.getName(), employeeInterface, null);
 	}

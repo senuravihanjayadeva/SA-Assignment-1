@@ -26,6 +26,7 @@ public class EmployeeService implements EmployeeInterface{
 		connection = database.getDatabaseConnection();
 	}
 
+	//Add Employee into the system
 	@Override
 	public void insertEmployee() {
 		// TODO Auto-generated method stub
@@ -58,6 +59,7 @@ public class EmployeeService implements EmployeeInterface{
 		
 	}
 
+	//Get Employee Details from the system
 	@Override
 	public void searchEmployee() {
 		// TODO Auto-generated method stub
@@ -81,6 +83,7 @@ public class EmployeeService implements EmployeeInterface{
 		}
 	}
 
+	//Get All Employee Details from the system
 	@Override
 	public void getallemployee() {
 		// TODO Auto-generated method stub
@@ -100,10 +103,11 @@ public class EmployeeService implements EmployeeInterface{
 		}
 	}
 
+	//Delete Employee Detail from the system
 	@Override
 	public void deleteemployee() {
 		// TODO Auto-generated method stub
-String nic;
+		String nic;
 		
 		System.out.println("Enter NIC : ");
 		nic = (sc.nextLine().trim());
