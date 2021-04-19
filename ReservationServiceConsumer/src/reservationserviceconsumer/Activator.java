@@ -7,6 +7,7 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import resturantservicepublisher.ResturantServicePublish;
 
+//This is the service consumer class
 public class Activator implements BundleActivator {
 
 	ServiceReference serviceReference;
@@ -36,20 +37,24 @@ public class Activator implements BundleActivator {
 		System.out.println(" Enter (c) if you are a customer and (a) if you are an admin:");
 		type = sc.nextLine().trim();
 		if(type.equals("c")||type.equals("C")) {
-			resturantServicePublish.insertReservation();
+			//creating an user class object
+			User user = new User(resturantServicePublish);
+			user.reserve();
 			
 			while(suboption.equals("y")) {
 				System.out.println("\n\nDo you want to Add Another Reservation(y/n)");
 				suboption = sc.nextLine().trim();
 	
 				if(suboption.equals("y")) {
-					resturantServicePublish.insertReservation();
+					user.reserve();
 				}
 			}
 			displayMainMenu(resturantServicePublish);
 		}
 		else if(type.equals("a")||type.equals("A")) {
-			
+			//creating an admin class object
+			Admin admin = new Admin(resturantServicePublish);
+			 
 			System.out.println("1  - Get all Reservations");
 			System.out.println("2  - Get reservation by name");
 			System.out.println("3  - Delete reservation");
@@ -61,27 +66,26 @@ public class Activator implements BundleActivator {
 			option = Integer.parseInt(sc.nextLine().trim());
 			switch(option) {
 			case 1:
-				resturantServicePublish.getallReservations();
+				admin.getallReservations();
 				displayMainMenu(resturantServicePublish);
 				break;
 			case 2:
-				resturantServicePublish.getReservationsByCustName();
+				admin.getReservationsByCustName();
 				displayMainMenu(resturantServicePublish);
 				break;
 			case 3:
-				resturantServicePublish.deleteReservation();
+				admin.deleteReservation();
 				displayMainMenu(resturantServicePublish);
 				break;
 			case 4:
-				resturantServicePublish.getPriorityNormal();
+				admin.getPriorityNormal();
 				displayMainMenu(resturantServicePublish);
 				break;
 			default:
 				System.out.println("Incorrect Input. Try Again...");
 				displayMainMenu(resturantServicePublish);
 		}
-		}
-		
+	}
 		
 		
 		
