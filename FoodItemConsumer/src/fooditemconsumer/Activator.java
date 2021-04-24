@@ -15,6 +15,7 @@ public class Activator implements BundleActivator {
 
 	public void start(BundleContext context) throws Exception {
 		System.out.println("Start Subscriber Service");
+		//Register Consumer Service
 		serviceReference = context.getServiceReference(FoodItemInterface.class.getName());
 		@SuppressWarnings("unchecked")
 		FoodItemInterface foodItemInterface = (FoodItemInterface)context.getService(serviceReference);	
